@@ -182,7 +182,7 @@ func Delete(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	log.Println("Server started on: http://192.168.0.170:8080")
+	log.Println("Server started on: https://192.168.0.170:8080")
 	http.HandleFunc("/", Index)
 	http.HandleFunc("/show", Show)
 	http.HandleFunc("/new", New)
@@ -190,5 +190,5 @@ func main() {
 	http.HandleFunc("/insert", Insert)
 	http.HandleFunc("/update", Update)
 	http.HandleFunc("/delete", Delete)
-	http.ListenAndServe("192.168.0.170:8080", nil)
+	http.ListenAndServeTLS("192.168.0.170:8080", "cert.pem", "key.pem", nil)
 }
